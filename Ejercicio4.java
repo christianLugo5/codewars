@@ -11,16 +11,18 @@ public class Ejercicio4 {
 		if(b.length == 0)
 			return a;
 		
-		ArrayList<Integer> list = new ArrayList<Integer>();
+		List<Integer> listB = new ArrayList<Integer>();
 		for(int i = 0; i < b.length; i++) {
-			for(int x = 0; x < a.length; x++) {
-				if(b[i] != a[x]) {
-					list.add(a[x]);
-				}
-			}
+			listB.add(b[i]);			
 		}
-		int[] val =list.stream().mapToInt(i -> i).toArray(); 
-		return val;
+		List<Integer> newList = new ArrayList<Integer>();
+		for(int i = 0; i < a.length; i++) {			
+			if(!listB.contains(a[i])) {
+				newList.add(a[i]);
+			}			
+		}		
+		
+		return newList.stream().mapToInt(i -> i).toArray();
 	}
 	
 }
